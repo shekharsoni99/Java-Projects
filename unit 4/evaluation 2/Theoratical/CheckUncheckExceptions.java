@@ -8,26 +8,39 @@
 //ques 3: Final is the keyword and access modifier which apply restrictions on class, method, or variable.
 //Finally is used in Exception handling in Java, whether the code has expection or not, this block always excute.
 
+
 import java.util.Scanner;
 
-public class CheckUncheckExceptions{
 
-    public static void main(String[] args) throws error{
+//Checked Exception
+public class CheckUncheckExceptions{
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
+        int x = 6;
+        int y = 0;
+        
         try {
-            String name = sc.next();
+            int z = x/y;
+            System.out.println(z);
         }
-        catch (error e) {
-            System.out.println(e.getMessage());
+        catch (ArithmeticException ae) {
+            System.out.println(ae.getMessage());
         }
     }
 }
 
-class error extends Exception{
-    public error(String message) throws error{
-        message = "Enter valid input";
-        error er = new error(message);
-        throw er;
-    }
-}
+
+//unchecked exception:
+
+//public class CheckUncheckExceptions{
+//    public static void main(String[] args) throws error{
+//        Scanner sc = new Scanner(System.in);
+//
+//        int x = 6;
+//        int y = 0;
+//
+//        System.out.println(z);
+// 
+//    }
+//}
