@@ -1,0 +1,16 @@
+Question 1: What is normalization and why it is needed?
+
+Ans: Normalization is a process of organizing the data in database to avoid data redundancy (duplication), insertion anomaly, update anomaly & deletion anomaly. 
+The purpose of normalization is to maximize the efficiency of a database.
+
+Question 2: Explain the 3NF with an example.
+
+Ans: 
+Table must be in 2NF
+Transitive functional dependency of non-prime attribute on any super key should be
+removed.
+
+Book	          	Author			Author_age
+Game of Thrones		George R. R. Martin	66
+Harry Potter		J. K. Rowling		49
+Dying of the Light	George R. R. Martin	66
