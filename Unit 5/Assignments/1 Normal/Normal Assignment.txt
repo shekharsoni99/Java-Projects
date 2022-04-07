@@ -14,3 +14,18 @@ Book	          	Author			Author_age
 Game of Thrones		George R. R. Martin	66
 Harry Potter		J. K. Rowling		49
 Dying of the Light	George R. R. Martin	66
+
+{Book} ->{Author} (if we know the book, we knows the author name)
+
+{Author} does not ->{Book}
+
+{Author} -> {Author_age}
+
+Therefore as per the rule of transitive dependency: {Book} -> {Author_age} should hold, that makes sense because if we know the book name we can know the author’s age.
+
+
+Make two seperate tables:
+ 1. Book and author
+ 2. Author and Author_age
+ 
+ to remove transitive dependency
