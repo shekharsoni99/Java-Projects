@@ -15,7 +15,7 @@ public class DBUtility {
 			e.printStackTrace();
 		}
 		
-		String url = "jdbc:mysql://localhost:3306/shekhar";
+		String url = "jdbc:mysql://localhost:3306/db1";
 		
 		try {
 			conn = DriverManager.getConnection(url, "root", "shekhar");
