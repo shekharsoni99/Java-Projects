@@ -22,7 +22,7 @@ step 2: insert into students values(1, "Ashley");
 	insert into packages values(4, 12.12);
 
 
-step 3: 
+step 3: select name from students where id in (select id from friends where friend_id in (select id from packages where packages.salary(id) > packages.salary(friends.friend_id)));
 
 ---------------------------------------------------------------------------------------------------
 
