@@ -1,0 +1,84 @@
+Problem 1:
+
+step 1: create table students(id int, name varchar(30));
+	create table friends(id int, friend_id int);
+	create table packages(id int, salary float);
+
+step 2: insert into students values(1, "Ashley");
+	insert into students values(2, "Samantha");
+	insert into students values(3, "Julia");
+	insert into students values(4, "Scarlet");
+
+	
+	insert into friends values(1, 2);
+	insert into friends values(2, 3);
+	insert into friends values(3, 4);
+	insert into friends values(4, 1);
+	
+
+	insert into packages values(1, 15.20);
+	insert into packages values(2, 10.06);
+	insert into packages values(3, 11.55);
+	insert into packages values(4, 12.12);
+
+
+step 3: 
+
+---------------------------------------------------------------------------------------------------
+
+Problem 2: 
+
+3NF: 	It must be in 2nd normal form.
+	All the transitive dependencies of no-prime attributes on super keys must be removed.
+
+	example:
+	
+	X -> Y   (Y is dependent on X)
+	Y -> Z   (Z is dependent on Y)
+
+	Indirectly, X -> Z  (Z is dependent on X)
+
+	So, Z is non-prime attribute which is dependent on X (which is a super key).
+	Now, here to make this table to be in 3NF we have to remove the dependency of Z from X.
+
+	Here we make 2 tables, 	table 1: X & Y
+			  and, 	table 2: Y & Z
+
+	By doing so we have removed the dependency of non-prime attribute from super key and thus these tables are normalized in 3NF.
+
+
+
+---------------------------------------------------------------------------------------------------
+
+problem 3: 
+
+Answer: Transactions: It is a sequence of operation performed in one go on database. The bundle of all the operations is considered as one unit.
+
+for example 1, start transaction; statement1; statement2; commit;
+example 2, start transaction; statement1, statement2, rollback;
+
+In commit, all the operations will be executed completely and it is irreversible while in rollback if there is some issues occur in between the transaction it will rollback to it's original state.
+
+ACID Properties:
+A - Atomic : All the operations is performed or non of them will execute.
+C - Consistent : At the end of transaction data is left in consistent state.
+I - Isolated : All the operations must be independent from each other.
+D - Durable : At the end all the modifications must be in permanent state.
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+Problem 4:
+
+step 1: create table person(personid int primary key, lastname varchar(20), firstname varchar(20));
+
+step 2: create table address(addressid int primary key, personid int, city varchar(25), state varchar(25));
+
+step 3: insert into person values(1, "Wang", "Allen");
+	insert into person values(2, "Alice", "Bob"); 
+
+step 4: insert into address values(1, 2, "New York City", "New York"); 
+	insert into address values(2, 3, "Leetcode", "California"); 
+
+step 5 (Query): select person.firstname, person.lastname, address.city, address.state from person LEFT JOIN address ON person.personid = address.personid;
