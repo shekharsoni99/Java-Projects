@@ -1,0 +1,250 @@
+Ques 1:
+
+import java.util.Scanner;
+
+public class BinarySearch {
+
+    public int binarySearch(int[] arr,int target, int a){
+
+        int targetIndex = -1; // index of target element
+
+        // sort the array first using sort()
+
+        switch (a) {
+            case 1: BubbleSortMethod bubbleSortMethod = new BubbleSortMethod();
+                    int[] arr1 = bubbleSortMethod.BubbleSort(arr);
+                    
+            case 2: SelectionSortMethod selectionSortMethod = new SelectionSortMethod();
+                    int[] arr2 = selectionSortMethod.SelectionSort(arr);  
+                
+            case 3: AnotherAlgorithm anotherAlgorithm = new AnotherAlgorithm();
+                    int[] arr3 = anotherAlgorithm.BubbleSort(arr);
+
+	    default: System.out.println("Please enter a valid input");
+                    
+        }
+
+        /* binary search Algorithm
+         * no need to implement that
+         * Assume it is here
+         */
+
+        return targetIndex; // returning index of target element after applying Binary Search
+    }
+}
+
+interface BubbleSort {
+    public int[] BubbleSort(int[] arr);
+}
+
+interface SelectionSort {
+    public int[] SelectionSort(int[] arr);
+}
+
+class  BubbleSortMethod implements BubbleSort {
+
+    @Override
+    public int[] BubbleSort(int[] arr) {
+        System.out.println("array is sorted using bubble sort");
+        return new int[0];
+    }
+
+}
+
+class SelectionSortMethod implements SelectionSort {
+
+    @Override
+    public int[] SelectionSort(int[] arr) {
+        System.out.println("array is sorted using selection sort");
+        return new int[0];
+    }
+}
+
+class AnotherAlgorithm implements BubbleSort {
+
+    @Override
+    public int[] BubbleSort(int[] arr) {
+        System.out.println("Array is sorted using any algorithm");
+        return new int[0];
+    }
+}
+
+
+class SearchingRunner {
+
+    public static void main(String[] args) {
+        int[] arr={1,3,2}; //unsorted array
+        int target=3;
+
+        System.out.println("Enter 1: For Bubble Sort");
+        System.out.println("Enter 2: For Selection Sort");
+        System.out.println("Enter 3: For Any Sorting Algorithm");
+
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+
+        BinarySearch bs1=new BinarySearch( /*use bubble sort algorithm*/);
+        int result1 = bs1.binarySearch(arr,target, a);
+
+        System.out.println("Index of target element is: " + result1 + "using method" + a);
+
+//        BinarySearch bs2=new BinarySearch( /*use selection sort algorithm*/);
+//        int result2 = bs2.binarySearch(arr,target);
+//
+//        BinarySearch bs3=new BinarySearch( /*use another algorithm*/);
+//        int result3 = bs3.binarySearch(arr,target);
+    }
+}
+
+
+
+Abstractions : BubbleSort, SelectionSort.
+
+Classes: BubbleSortMethod, SelectionSortMethod, AnotherAlgorithm.
+
+Method signatures: public int[] BubbleSort(int[] arr), public int[] SelectionSort(int[] arr), public int[] BubbleSort(int[] arr).
+
+
+--------------------------------------------------------------------------------------------------
+ 
+Ques 2: 
+
+Liscov’s Substitution principle: 
+
+Objects should be replaceble with instances of their subtypes without changing the actual output of the code.
+
+Example: 
+
+// Wrong Code
+
+class Animals {
+    public void swim() {
+        System.out.println("Animal can swim");
+    }
+}
+
+class Whale extends Animals {
+    //Whale is a animal which can swim.
+
+	@Override
+    	public void swim() {
+        	super.swim();
+    	}
+}
+
+class tiger extends Animals{
+    //Tiger is an animal but it can't swim.
+
+	@Override
+    	public void swim() {
+        	super.swim();
+    	}
+}
+
+//Correct Code
+
+class Animal {
+    void msg() {
+        System.out.println("Animal class");
+    }
+}
+class WaterAnimals extends Animals{
+    void waterAnimal() {
+        System.out.println("This animal can swim");
+    }
+}
+
+class Tiger extends Animal {
+	//Tiger is a animal
+
+	@Override
+    	void msg() {
+        	super.msg();
+    	}
+}
+
+class whale extends WaterAnimals {
+	//whale is a animal and can swim.
+
+	@Override
+    	void msg() {
+        	super.msg();
+    	}
+	
+	@Override
+    	void waterAnimal() {
+        	super.waterAnimal();
+    	}
+}
+
+
+---------------------------------------------------------------------------------------------
+
+Ques 3: 
+
+
+
+------------------------------------------------------------------------------------------------
+
+Ques 4: 
+
+package ques4;
+
+import java.util.Scanner;
+
+public class BankNotePress {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter denomination of note: 10, 100, 1000");
+
+        int input = sc.nextInt();
+
+        Paper x = PaperFactory.getPaper(input);
+        System.out.println(x.getPaper());
+    }
+}
+
+class PaperFactory {
+    public static Paper getPaper(int denomination) {
+        if(denomination == 10) {
+            return new PaperS1();
+        }
+        else if(denomination == 100) {
+            return new PaperS2();
+        }
+        else if (denomination == 1000) {
+            return new PaperS3();
+        }
+        else {
+            return (Paper) new Exception("Invalid input");
+        }
+    }
+}
+
+interface Paper{
+    String getPaper();
+}
+
+class PaperS1 implements Paper{
+    @Override
+    public String getPaper() {
+        return "Paper S1 is supplied";
+    }
+}
+
+class PaperS2 implements Paper{
+    @Override
+    public String getPaper() {
+        return "Paper S2 is supplied";
+    }
+}
+
+class PaperS3 implements Paper{
+    @Override
+    public String getPaper() {
+        return "Paper S3 is supplied";
+    }
+}
+
