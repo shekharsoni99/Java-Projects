@@ -180,7 +180,10 @@ class whale extends WaterAnimals {
 
 ---------------------------------------------------------------------------------------------
 
-Ques 3: 
+	
+Ques 3: In solid principal, 
+ISP is voilated here(Interface Segregation Principal).
+
 
 
 
