@@ -1,0 +1,18 @@
+A) IoC: If a class is dependent on any other class then it creates a object of that super class in it's own class.
+ but when it takes help of any other external entity for creating object of super class in itself then it is called Inversion Of Control.
+
+
+B)  Spring Beans : Spring bean is a POJO class. 
+  The java class which is registered with Spring container software is a spring bean.
+
+C) Bean Scope: 
+	1. Singleton scope.
+	2. Prototype scope.
+	3. Request scope.
+	4. Session scope.
+
+D) Autowiring: The process of creating asociation between application components.
+Modes: Explicit wiring & Implicit wiring.
+
+Limitation: I cannot inject single value of an object.
+If container has many same type dependency then, ambiguity.
