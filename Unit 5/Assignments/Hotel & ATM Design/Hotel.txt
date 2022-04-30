@@ -1,0 +1,66 @@
+Ques 1: Design Hotel Management System
+
+
+
+public enum RoomStatus {
+	EMPTY
+	NOT_EMPTY;
+}
+
+public enum RoomType {
+	SINGLE,
+	DOUBLE,
+	TRIPLE;
+}
+
+public enum PaymentStatus {
+	PAID,
+	UNPAID;
+}
+
+
+class User {
+
+	int userId;
+	String name;
+	String mobNo;
+	String emailId;
+}
+
+class Room {
+
+	int roomId;
+	int hotelId;
+	RoomType roomType;
+	RoomStatus roomStatus;
+}
+
+class Hotel {
+
+	int hotelId;
+	String hotelName;
+	Address address;
+
+	List<Room> rooms;
+}
+
+class Booking {
+	int bookingId;
+	int userId;
+	int hotelId;
+
+	List<Rooms> bookedRooms;
+	
+	int amount;
+	PaymentStatus status_of_payment;
+	Date bookingTime;
+}
+
+class Address {
+
+	String city;
+	String pinCode;
+	String state;
+	String Address;
+}
+

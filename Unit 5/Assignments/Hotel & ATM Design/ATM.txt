@@ -1,0 +1,100 @@
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Ques 2: Design ATM
+
+
+enum TransactionType {
+  BALANCE_INQUIRY, DEPOSIT_CASH, WITHDRAW
+}
+
+enum TransactionStatus {
+  SUCCESS, FAILURE, NONE
+}
+
+public enum CustomerStatus {
+  ACTIVE, BLOCKED, CLOSED
+}
+
+public class Address {
+  private String streetAddress;
+  private String city;
+  private String state;
+  private String zipCode;
+  private String country;
+}
+
+public class Customer {
+  private String name;
+  private String phone;
+  private Address address;
+  private CustomerStatus status;
+
+  private Card card;
+  private Account account;
+
+  public boolean makeTransaction(Transaction transaction);
+}
+
+public class Card {
+  private String cardNumber;
+  private String customerName;
+  private Date cardExpiry;
+  private int pin;
+}
+
+public class Account {
+  private int accountNumber;
+  private double totalBalance;
+  private double availableBalance;
+
+  public double getAvailableBalance();
+}
+
+public class Bank {
+  private String name;
+  private String bankCode;
+
+  public String getBankCode();
+  public boolean addATM();
+}
+
+public class ATM {
+  private int atmID;
+  private Address location;
+
+  private CashDeposit cashDeposit;
+
+  public boolean authenticateUser();
+  public boolean makeTransaction(Customer customer, Transaction transaction);
+}
+
+public class Printer {
+  public boolean printReceipt(Transaction transaction);
+}
+
+public abstract class Transaction {
+  private int transactionId;
+  private Date creationTime;
+  private TransactionStatus status;
+  public boolean makeTransation();
+}
+
+public class BalanceInquiry extends Transaction {
+  private int accountId;
+  public double getAccountId();
+}
+
+public abstract class Deposit extends Transaction {
+  private double amount;
+  public double getAmount();
+}
+
+public class CashDeposit extends Deposit {
+  private double cashDepositLimit;
+}
+
+public class Withdraw extends Transaction {
+  private double amount;
+  public double getAmount();
+}
