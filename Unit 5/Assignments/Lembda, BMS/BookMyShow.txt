@@ -1,0 +1,122 @@
+Ques 1: Strategy Pattern with the help of Lambda functions in Java?
+
+
+package com.masai;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Strategy pattern on Steroids");
+	    
+	    List<Strategy> strategies = 
+	      Arrays.asList(
+	        () -> {System.out.println("Perform task a day before deadline!");},
+	        () -> {System.out.println("Perform task now!");}
+	      );
+	    
+	    strategies.forEach((elem) -> elem.performTask());
+
+	}
+
+}
+
+interface Strategy{
+	public void performTask();
+}
+
+
+---------------------------------------------------------------------------------------
+
+Ques 2: Design BookMyShow using OOP principles.
+
+
+enum SeatStatus {SEAT_BOOKED, SEAT_NOT_BOOKED};
+
+
+enum MovieStatus {Movie_Available,Movie_NotAvailable};
+ 
+
+enum SeatType {NORMAL, EXECUTIVE, PREMIUM, VIP};
+ 
+
+enum PaymentStatus {PAID, UNPAID};
+ 
+
+class User {
+ 
+
+    int userId;
+
+    String name;
+
+    String mobNo;
+
+    String emailId;
+}
+ 
+
+class Movie {
+ 
+
+    int movieId;
+
+    int theaterId;
+
+    MovieStatus movieStatus;
+}
+ 
+
+class Theater {
+ 
+
+    int theaterId;
+
+    String theaterName;
+
+    Address address;
+ 
+
+    List<Movie> movies;
+
+    float rating;
+}
+ 
+
+class Booking {
+
+    int bookingId;
+
+    int userId;
+
+    int movieId;
+
+    List<Movie> bookedSeats;
+
+    int amount;
+
+    PaymentStatus status_of_payment;
+
+    Date booked_date;
+
+    Time movie_timing;
+}
+ 
+
+class Address {
+ 
+
+    String city;
+
+    String pinCode;
+
+    String state;
+
+    String Address;
+
+}
+ 
+
