@@ -1,0 +1,45 @@
+Q1. What are the steps involved whenever you visit a page on the web, your computer uses the Hypertext Transfer Protocol (HTTP) to download that page from another computer somewhere on the Internet.
+
+Ans: 
+Step 1: You Enter a URL
+Step 2: Your Browser Uses DNS to Find the Website’s IP Address
+Step 3: Your Browser Requests a Connection to the Website
+Step 4: Your Browser Downloads Website Data
+Step 5: The Cycle Continues
+
+-------------------------------------------------------------------------------------------------------
+
+Q2. What is CAP theorem, discuss a scenario where CAP theorem helps you choose a system where high availability is required?
+
+Ans: CAP Theorem
+It states that in a distributed system, it is impossible to simultaneously guarantee all of the following:
+[Consistency Availability Partition Tolerance]
+That is, any distributed system guarantees any two of the three stated later.Consistency (all nodes see the same data at the same time)Availability (a guarantee that every request receives a response about whether it was successful or failed)Partition
+Tolerance (the system continues to operate despite arbitrary message loss or failure of a part of the system).
+
+
+--------------------------------------------------------------------------------------------------------------
+
+Q3. Explaining A. what is Eventual consistency B. what is Replication C. what is sharding when it is required
+
+Ans: 
+
+A) Eventual consistency : Exactly what the name suggests. In a cluster, if multiple machines store the same data, an eventual consistent model implies that all machines will have the same data eventually. 
+Its possible that at a given instance, those machines have different versions of the same data ( temporarily inconsistent ) but they will eventually reach a state where they have the same data.
+
+B) Replication : Replication refers to frequently copying the data across multiple machines. Post replication, multiple copies of the data exists across machines. This might help in case one or more of the machines die due to some failure.
+
+C) Sharding : With most huge systems, data does not fit on a single machine. In such cases, sharding refers to splitting the very large database into smaller, faster and more manageable parts called data shards.
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Q4. What is CDN and why is it beneficial?
+
+Ans: CDN (Computer Delivery Network) is a system of distributed servers that deliver web pages and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server.
+Suppose I am running the website outside the UK and I am serving the website all around the world. When the user wants to access my website, then they request to the web server, and users from different countries will have different latency. 
+For example, People who live in Australia will have more latency than those who stay in India.Key Terminology of CloudFront CDN
+
+Edge Location: Edge location is the location where the content will be cached. 
+Origin: It defines the origin of all the files that CDN will distribute.
+

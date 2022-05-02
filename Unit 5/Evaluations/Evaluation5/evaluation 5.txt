@@ -1,0 +1,241 @@
+Ques1:
+
+
+a) Get All books information
+
+
+
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("BookUnit");
+
+EntityManager em = emf.createEntityManager();
+
+List<Books> book = em.find(Books.class);
+
+em.getTransaction().begin();
+foreach(Books b:book) {
+	
+	System.out.println(b.name);
+	System.out.println(b.author);
+	System.out.println(b.price);
+	
+		
+}
+
+em.getTransaction().commit();
+
+
+b) Get the information of any particular book by id
+
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("BookUnit");
+
+EntityManager em = emf.createEntityManager();
+
+System.out.println("Enter Book Id to find");
+
+Books book = em.find(Books.class, id);
+
+
+try{
+
+	if(Book != null) {
+	
+		em.getTransaction().begin();
+		
+		System.out.println(book.name);
+		System.out.println(book.author);
+		System.out.println(book.price);
+	
+		em.getTransaction().commit();
+		
+	}
+}
+
+catch(e) {
+	System.out.println(e.message);
+	//throw BookNotFoundException
+}
+
+
+c) Create a new Book
+
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("BookUnit");
+
+EntityManager em = emf.createEntityManager();
+
+System.out.println("Enter Book Id to find");
+
+Books book = em.find(Books.class, id);
+
+
+try{
+
+	if(Book != null) {
+	
+		em.getTransaction().begin();
+		
+		em.create(book);
+	
+		em.getTransaction().commit();
+		
+	}
+}
+
+catch(e) {
+	System.out.println(e.message);
+	//throw BookNotFoundException
+}
+
+
+
+d) Delete Book
+
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("BookUnit");
+
+EntityManager em = emf.createEntityManager();
+
+System.out.println("Enter Book Id to find");
+
+Books book = em.find(Books.class, id);
+
+
+try{
+
+	if(Book != null) {
+	
+		em.getTransaction().begin();
+		
+		em.remove(book);
+	
+		em.getTransaction().commit();
+		
+	}
+}
+
+catch(e) {
+	System.out.println(e.message);
+	// throw BookNotFoundException
+}
+
+
+
+e) Update Book
+
+
+EntityManagerFactory emf = Persistence.createEntityManagerFactory("BookUnit");
+
+EntityManager em = emf.createEntityManager();
+
+System.out.println("Enter Book Id to find");
+
+Books book = em.find(Books.class, id);
+
+
+try{
+
+	if(Book != null) {
+	
+		em.getTransaction().begin();
+		
+		em.update(book);
+	
+		em.getTransaction().commit();
+		
+	}
+}
+
+catch(e) {
+	System.out.println(e.message);
+}
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+Ques 2: CAP
+
+Ans: CAP stands for
+	C- Consistency
+	A- Availability
+	P- Partition Tolerance
+
+It states that it is not possible to achieve all the above 3 conditions at a same time in a distributed network system.
+
+That is, any distributed system guarantees any two of the three stated later.
+
+1> Consistency : Every system(node) gets the data at same time.
+2> Availability: It makes sure that every request gets a response (independent of success or failure).
+3> Partition Tolerance: It makes sure that the system keeps on running weather any part is falied or in case of data loss.
+
+
+Suppose , I visit an ATM and checking withdraw amount, then visit to another ATM and check balance, it shows me the updated balance, since data is transferred to all the ATM's
+This is consistency
+
+However,
+Availability is of importance when it is required that the client or user be able to access the data at all times, even if it is not consistent.
+like I want to check my account balance anytime, wheather it is updated or not.
+
+Then we should choose CAP
+
+----------------------------------------------------------------------------------------------------------------
+
+Ques3: Operating System & functions.
+
+Ans: 
+An Operating System (OS) is an interface between a computer user and computer hardware. 
+An operating system is a software which performs all the basic tasks like file management, memory management, process management, handling input and output, and controlling peripheral devices such as disk drives and printers.
+
+Examples of Operating Systems include Linux Operating System, Windows Operating System, etc.
+
+Functionalities:
+1. Memory Management : Allocates/De-allocates the memory when a process requests it to do so
+
+2. Processor Management : Allocates/De-allocates the processor (CPU) to a process.
+
+3. Device Management: Allocates/De-allocates the device.
+
+4. File Management : Allocates/De-allocates the resources.
+
+5. Security: Provides user security using authentication features like password protection.
+
+6. Control over system performance: Improves system performance.
+
+7. Coordination between other software and users: creates coordination between user and hardware.
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Ques 4:
+a) A architecture that classifies computer into two sections, client and server.
+
+	1> A client is the requester, which can be a program that we use to make requests
+	through the network.
+	2> A server is the response provider, which is a program that listens for the client’s
+	requests and responds to them.
+
+b) Caching is a high-speed data storage layer which stores a some limited data, so that future requests for that data are served up faster than is possible by accessing the data’s primary storage location. 
+
+	> The data in a cache is generally stored in fast access hardware such as RAM (Random-access memory) and may also be used in correlation with a software component. 
+	> A cache's primary purpose is to increase data retrieval performance.
+
+c) WebSockets allow both the server and the client to push messages at any time without any relation to a previous request.
+
+	> When a client needs to react quickly to a change, a WebSocket may be best. 
+	> Consider a chat application that allows multiple users to chat in real-time. If WebSockets are used, each user can both send and receive messages in real-time.
+	> When we don't want latency.
+
+d) Let's take an example of email service:
+
+Suppose I send a mail to my friend's mail id: xyz@abc.com & my maid id: abc@xyz.com
+Now, my friend logins to it's account by it's private keys (userId, Password) and sees my mail, 
+
+Now how he know who send this mail?
+Then he sees my mail id: abc@xyz.com and got to know I have sent this mail to him.
+
+So here his private keys are(i.e. username & password), and public key is my mail id.
+
+By this analogy softwares uses public and private keys to encrypt and decrypt it's data.
+
+Like GIthub uses this technology to push pull data from laptop to server and vice-versa.
